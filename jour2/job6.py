@@ -8,10 +8,17 @@ mydb = mysql.connector.connect(
 )
 
 cursor = mydb.cursor()
-cursor.execute("SELECT * FROM etudiant;")
+cursor.execute("SELECT * FROM salle;")
 
 results = cursor.fetchall()
 
-results = cursor.fetchone()
+total_capacite = 0
+for piece in results:
+  total_capacite += piece[3]
+
+# results = cursor.fetchone()
+
 cursor.close()
 mydb.close()
+
+print(f"La capacité de La Plateforme est de {total_capacite} personnes")

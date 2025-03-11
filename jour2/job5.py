@@ -8,10 +8,17 @@ mydb = mysql.connector.connect(
 )
 
 cursor = mydb.cursor()
-cursor.execute("SELECT * FROM etudiant;")
+cursor.execute("SELECT * FROM etage;")
 
 results = cursor.fetchall()
 
-results = cursor.fetchone()
+total_superficie = 0
+for piece in results:
+  total_superficie += piece[3]
+
+# results = cursor.fetchone()
+
 cursor.close()
 mydb.close()
+
+print(f"La superficie de La Plateforme est de {total_superficie} m2")
