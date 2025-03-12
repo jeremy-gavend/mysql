@@ -100,7 +100,7 @@ def manage_animals():
             animal_cage = int(input("Cage de l'animal: "))
             animal_birth = input("Date de naissance de l'animal: ")
             animal_country = input("Pays de l'animal: ")
-            cursor.execute(f"INSERT INTO animal(nom, race, id_cage, date_naissance, pays) VALUES({animal_name}, {animal_race}, {animal_cage}, {animal_birth}, {animal_country});")
+            cursor.execute(f"INSERT INTO animal(nom, race, id_cage, date_naissance, pays) VALUES('{animal_name}', '{animal_race}', {animal_cage}, '{animal_birth}', '{animal_country}');")
             
             return True
                            
